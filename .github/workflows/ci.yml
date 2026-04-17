@@ -21,3 +21,4 @@ jobs:
         run: pwd 
       - name: Show system info
         run: uname -a
+        run: exit 1
