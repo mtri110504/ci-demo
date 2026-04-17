@@ -19,3 +19,5 @@ jobs:
         run: ls -la
       - name: Show current directory
         run: pwd 
+      - name: Show system info
+        run: uname -a
