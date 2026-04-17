@@ -1,24 +1,23 @@
-name: CI Demo
+name: CI Node.js
 
 on:
   push:
-    branches: [ "master" ]
+    branches: ["main"]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Print message
-        run: echo "CI is running 🚀"
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
 
-      - name: List files
-        run: ls -la
-      - name: Show current directory
-        run: pwd 
-      - name: Show system info
-        run: uname -a
-        run: exit 1
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run test
+        run: npm test
